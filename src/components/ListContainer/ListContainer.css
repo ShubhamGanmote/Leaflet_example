@@ -1,0 +1,11 @@
+.search-list-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.search-heading {
+  font-weight: 500;
+  font-size: 16px;
+}

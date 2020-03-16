@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import './SearchComponent.css';
-
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { useDispatch } from 'react-redux';
+
+import './SearchComponent.css';
+import * as types from '../../store/constants';
 
 const SearchComponent = props => {
+	const dispatch = useDispatch();
+
 	const [searchValue, setSearchValue] = useState();
 	const [searchResults, setSearchResults] = useState([]);
 
@@ -18,6 +22,7 @@ const SearchComponent = props => {
 				.then(res => {
 					console.log(res);
 					setSearchResults(res);
+					dispatch({ type: types.SET_SEARCH_RESULTS, data: res });
 					if (res.length > 0) {
 						props.onChangeLatLngHandler(res[0].raw.lat, res[0].raw.lon);
 					}
@@ -36,7 +41,7 @@ const SearchComponent = props => {
 				value={searchValue}
 				onChange={searchInputChangeHandler}
 			/>
-			<div>
+			{/* <div>
 				<ul>
 					{searchResults.length > 0
 						? searchResults.map(result => {
@@ -44,7 +49,7 @@ const SearchComponent = props => {
 						  })
 						: null}
 				</ul>
-			</div>
+			</div> */}
 		</div>
 	);
 };

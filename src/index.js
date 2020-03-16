@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'leaflet/dist/leaflet.css';
+import 'primereact/resources/primereact.min.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
